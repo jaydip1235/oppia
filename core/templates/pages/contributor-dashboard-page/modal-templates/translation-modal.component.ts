@@ -402,10 +402,22 @@ export class TranslationModalComponent {
   }
 
   skipActiveTranslation(): void {
-    const translatableItem = this.translateTextService.getTextToTranslate();
-    this.updateActiveState(translatableItem);
-    ({more: this.moreAvailable} = translatableItem);
-    this.resetEditor();
+    if (this.activeWrittenTranslation) {
+      const confirmation = confirm(
+        'Your translation will be lost. Do you want to proceed?'
+      );
+      if (confirmation) {
+        const translatableItem = this.translateTextService.getTextToTranslate();
+        this.updateActiveState(translatableItem);
+        ({more: this.moreAvailable} = translatableItem);
+        this.resetEditor();
+      }
+    } else {
+      const translatableItem = this.translateTextService.getTextToTranslate();
+      this.updateActiveState(translatableItem);
+      ({more: this.moreAvailable} = translatableItem);
+      this.resetEditor();
+    }
   }
 
   isSubmitted(): boolean {

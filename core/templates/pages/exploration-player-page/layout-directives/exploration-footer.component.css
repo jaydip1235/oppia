@@ -13,8 +13,20 @@
   line-height: 0;
   margin-top: 30px;
   width: 100%;
+  max-width: 100vw;
+}
+@media screen and (max-width: 450px) {
+.temp{
+  max-width: 80vw;
+}
 }
 
+@media screen and (max-width: 575px) {
+  .temp{
+    flex-wrap: nowrap !important;
+  }
+  }
+  
 .oppia-exploration-footer .exploration-footer-img {
   height: 60px;
   margin: -31px 5px 0 10px;

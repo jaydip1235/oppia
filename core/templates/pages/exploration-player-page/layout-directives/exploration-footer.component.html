@@ -5,7 +5,7 @@
          [innerHTML]="'I18N_LESSON_INFO_TOOLTIP_MESSAGE' | translate">
     </div>
   </div>
-  <div class="row">
+  <div class="row temp">
     <div class="col-sm-5">
       <button class="oppia-lesson-info"
               #lessonInfoButton
@@ -26,12 +26,12 @@
           <span class="oppia-icon-accessibility-label">{{ 'I18N_PLAYER_INFO_TOOLTIP' | translate }}</span>
         </div>
       </button>
-      <oppia-hint-and-solution-buttons *ngIf="windowIsNarrow && hintsAndSolutionsAreSupported">
-      </oppia-hint-and-solution-buttons>
+      <!-- <oppia-hint-and-solution-buttons *ngIf="hintsAndSolutionsAreSupported">
+      </oppia-hint-and-solution-buttons> -->
     </div>
     <div class="col-sm-7">
       <div [ngClass]="{'float-left': isLanguageRTL(), 'float-right': !isLanguageRTL()}">
-        <oppia-hint-and-solution-buttons *ngIf="!windowIsNarrow && hintsAndSolutionsAreSupported">
+        <oppia-hint-and-solution-buttons *ngIf="hintsAndSolutionsAreSupported">
         </oppia-hint-and-solution-buttons>
         <div class="hint-container">
           <div class="hint-box hint-box-add-ons" *ngIf="isVisible && isTooltipVisible()">
